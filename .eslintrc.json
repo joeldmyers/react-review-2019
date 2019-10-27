@@ -10,9 +10,11 @@
   "rules": {
     "react/prop-types": 0,
     // warning for console output.
-    "no-console": 1
-  }
-  "plugins": ["react", "import", "jsx-a11y"],
+    "no-console": 1,
+    "react-hooks/rules-of-hooks": 2,
+    "react-hooks/exhaustive-deps": 1
+  },
+  "plugins": ["react", "import", "jsx-a11y", "react-hooks"],
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
@@ -24,7 +26,7 @@
     "es6": true,
     "browser": true,
     "node": true
-  }, 
+  },
   "settings": {
     "react": {
       "version": "detect"

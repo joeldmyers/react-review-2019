@@ -36,3 +36,11 @@ return (
 ```
 
 The JSX is syntactic sugar that, under the hood, is just running this createElement method.
+
+## Notes on Hooks:
+
+All hooks start with the word `use`
+
+`useState` replaces old need for setState, and works inside functional components.
+
+Never use hooks conditionally (in if or for loop).
