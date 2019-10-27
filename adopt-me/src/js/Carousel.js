@@ -9,7 +9,7 @@ class Carousel extends Component {
       photos: [],
       active: 0
     };
-    // this is to bind this to the component within the function, so we can use 'this' properly. 
+    // this is to bind this to the component within the function, so we can use 'this' properly.
     // this.handleIndexClick = this.handleIndexClick.bind(this);
   }
 
@@ -19,24 +19,25 @@ class Carousel extends Component {
   //   })
   // }
 
-  // or: 
+  // or:
 
   handleIndexClick = event => {
     this.setState({
       active: +event.target.dataset.index
     });
-  }
+  };
 
   static getDerivedStateFromProps({ media }) {
     // default image.
-    let photos ['http://placecorgi.com/600/600'];
+    let photos = ["http://placecorgi.com/600/600"];
     if (media.length) {
-      photos = media.map(({large}) => large);
+      photos = media.map(({ large }) => large);
     }
 
-    return { photos }
+    return { photos };
   }
   render() {
+    const { active, photos } = this.state;
     return (
       <div className="carousel">
         <img src={photos[active]} alt="animal" />
