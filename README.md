@@ -153,3 +153,23 @@ componentDidMount() {
     });
   }
 ```
+
+### getDerivedStateFromProps -
+
+Helpful when dealing with a lot of props, filtering across to pass into state:
+
+```
+static getDerivedStateFromProps({ media }) {
+    // default image.
+    let photos ['http://placecorgi.com/600/600'];
+    if (media.length) {
+      photos = media.map(({large}) => large);
+    }
+
+    return { photos }
+  }
+```
+
+### Note on this
+
+To avoid having to bind this in our class components for functions, just use arrow functions.
