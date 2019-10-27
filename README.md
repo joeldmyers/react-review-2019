@@ -170,6 +170,18 @@ static getDerivedStateFromProps({ media }) {
   }
 ```
 
-### Note on this
+### Note on 'this'
 
 To avoid having to bind this in our class components for functions, just use arrow functions.
+
+### Error boundaries
+
+We can have a wrapper that checks for errors and displays something more user-friendly.
+
+This is useful so that people don't have to see the whole app crashing if there's an error.
+
+I've included an error boundary component, which one could use to wrap the app or part of the app to ensure we handle crashing apps.
+
+### Context
+
+Context is trying to sort of fill what Redux does. It can create a global application state. It uses the useContext hook.
