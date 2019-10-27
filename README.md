@@ -256,3 +256,7 @@ export default Details;
 To use in a functional component, use useContext from React,
 
 ### Portals
+
+Portals allow us to add something to a different div than the main div where the main app is being injected (e.g., for a modal).
+
+At Netflix, they used this for the video player.
