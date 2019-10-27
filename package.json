@@ -1,0 +1,24 @@
+{
+  "name": "react-review-2019",
+  "version": "1.0.0",
+  "description": "This is a review of React as it stands in 2019, including latest features like hooks, effects, context, portals.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier \"adopt-me/src/**/*.{js,html}\" --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joeldmyers/react-review-2019.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joeldmyers/react-review-2019/issues"
+  },
+  "homepage": "https://github.com/joeldmyers/react-review-2019#readme",
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  }
+}
