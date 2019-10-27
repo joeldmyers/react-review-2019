@@ -2,14 +2,10 @@ import React, { Component } from "react";
 import pet from "@frontendmasters/pet";
 
 class Details extends Component {
-  constructor(props) {
-    // this calls the constructor from React.
-    super(props);
-
-    this.state = {
-      loading: true
-    };
-  }
+  // this is an experimental feature to avoid having to write out all the constructor(props) { super(props) etc.} stuff.
+  state = {
+    loading: true
+  };
 
   componentDidMount() {
     pet.animal(this.props.id).then(({ animal }) => {
