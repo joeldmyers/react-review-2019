@@ -9,8 +9,6 @@ Uses:
 - Reach Router (not React Router)
 - Parcel (instead of Webpack)
 
-To see the finished product, visit here: https://murmuring-citadel-79337.herokuapp.com/
-
 To generate a boilerplate HTML file in VS Code, type html:5 and hit tab.
 
 ## Notes:
@@ -256,3 +254,5 @@ export default Details;
 ```
 
 To use in a functional component, use useContext from React,
+
+### Portals
