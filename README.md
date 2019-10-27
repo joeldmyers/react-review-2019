@@ -1,6 +1,15 @@
 # React Review 2019
 
-This is a review of React as it stands in 2019, including latest features like hooks, effects, context, portals.
+This is a review of React as it stands in 2019, including latest features like hooks, effects, context, portals, by building a SPA that pulls data from an API about adopting pets, and allows the user to see additional details of the pets.
+
+Following along on Brian Holt's class on FrontEndMasters - https://github.com/btholt/complete-intro-to-react-v5
+
+Uses:
+
+- Reach Router (not React Router)
+- Parcel (instead of Webpack)
+
+To see the finished product, visit here: https://murmuring-citadel-79337.herokuapp.com/
 
 To generate a boilerplate HTML file in VS Code, type html:5 and hit tab.
 
@@ -185,3 +194,65 @@ I've included an error boundary component, which one could use to wrap the app o
 ### Context
 
 Context is trying to sort of fill what Redux does. It can create a global application state. It uses the useContext hook.
+
+To use in a class component it looks like this:
+
+```
+
+import React, { Component } from "react";
+import pet from "@frontendmasters/pet";
+import Carousel from "./Carousel";
+import ThemeContext from "./ThemeContext";
+
+class Details extends Component {
+  // this is an experimental feature to avoid having to write out all the constructor(props) { super(props) etc.} stuff.
+  state = {
+    loading: true
+  };
+
+  componentDidMount() {
+    pet.animal(this.props.id).then(({ animal }) => {
+      this.setState({
+        name: animal.name,
+        animal: animal.type,
+        location: `${animal.contact.address.city}, ${animal.contact.address.state}`,
+        description: animal.description,
+        media: animal.photos,
+        breed: animal.breeds.primary,
+        loading: false
+      });
+    });
+  }
+
+  render() {
+    if (this.state.loading) {
+      return <h1>Loading</h1>;
+    }
+
+    const { animal, breed, location, description, name, media } = this.state;
+
+    return (
+      <div className="details">
+        <Carousel media={media} />
+        <div>
+          <h1>{name}</h1>
+          <h2>{`${animal} - ${breed} - ${location}`}</h2>
+          <ThemeContext.Consumer>
+            {themeHook => (
+              <button style={{ backgroundColor: themeHook[0] }}>
+                Adopt {name}
+              </button>
+            )}
+          </ThemeContext.Consumer>
+          <p>{description}</p>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Details;
+
+```
+
+To use in a functional component, use useContext from React,
