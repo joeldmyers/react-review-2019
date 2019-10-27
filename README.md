@@ -85,3 +85,51 @@ If we want it to run only once, have an empty array; if we want it to run every 
 ### Strict Mode
 
 We can wrap everything in <React.StrictMode></React.StrictMode> to enforce not using deprecated aspects of React.
+
+### Reach router
+
+Like React Router, but better for Accessibility generally. It handles focus better when moving around to different routes.
+
+A cool trick is to do something like this -
+
+```
+
+const Details = props => {
+  return (
+    <pre>
+      <code>{JSON.stringify(props, null, 4)}</code>
+    </pre>
+  );
+};
+
+```
+
+It will show props which includes router details.
+
+Like:
+
+```
+
+{
+    "path": "/details/:id",
+    "id": "1",
+    "uri": "/details/1",
+    "location": {
+        "href": "http://localhost:1234/details/1",
+        "ancestorOrigins": {},
+        "origin": "http://localhost:1234",
+        "protocol": "http:",
+        "host": "localhost:1234",
+        "hostname": "localhost",
+        "port": "1234",
+        "pathname": "/details/1",
+        "search": "",
+        "hash": "",
+        "state": null,
+        "key": "initial"
+    }
+}
+
+```
+
+We can also use React Dev Tools
