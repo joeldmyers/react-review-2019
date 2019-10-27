@@ -133,3 +133,23 @@ Like:
 ```
 
 We can also use React Dev Tools
+
+### Props vs State
+
+Props are passed down from parent components, and are immutable.
+
+State is a self-contained state within the class that only works for class-based components.
+
+### Minor note:
+
+For here, use arrow functions to avoid `this` referring to the function etc. The arrow function does not create its own context, which is nice.
+
+```
+componentDidMount() {
+    pet.animal(this.props.id).then(({ animal }) => {
+      this.setState({
+        loading: false
+      });
+    });
+  }
+```

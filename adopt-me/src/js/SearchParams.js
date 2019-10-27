@@ -18,7 +18,6 @@ const SearchParams = () => {
         type: animal
       })
       .then(({ animals }) => {
-        console.log(animals, "ping");
         setPets(animals || []);
       });
   }
