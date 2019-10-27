@@ -43,6 +43,18 @@ All hooks start with the word `use`
 
 `useState` replaces old need for setState, and works inside functional components.
 
+useState example:
+
+```
+// useState returns an array with two values; we use destructuring to pull those off.
+// the function takes in the initial value.
+const [ location, setLocation ] = useState("New York, NY");
+
+// then in our component we can do someting like
+<input onChange={ setLocation( e => e.target.value )}>
+
+```
+
 Never use hooks conditionally (in if or for loop).
 
 ### UseEffect
