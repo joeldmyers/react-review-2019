@@ -2,7 +2,7 @@
 
 This is a review of React as it stands in 2019, including latest features like hooks, effects, context, portals.
 
-To generate a boilerplate HTML file, type html:5 and hit tab.
+To generate a boilerplate HTML file in VS Code, type html:5 and hit tab.
 
 ## Notes:
 
@@ -81,3 +81,7 @@ const functionComponent = () => {
 ```
 
 If we want it to run only once, have an empty array; if we want it to run every time the component updates, leave off the array entirely.
+
+### Strict Mode
+
+We can wrap everything in <React.StrictMode></React.StrictMode> to enforce not using deprecated aspects of React.
