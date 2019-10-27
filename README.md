@@ -44,3 +44,28 @@ All hooks start with the word `use`
 `useState` replaces old need for setState, and works inside functional components.
 
 Never use hooks conditionally (in if or for loop).
+
+### UseEffect
+
+This replaces some of the lifecycles - componentDidMount, componentWillMount, componentDidUpdate, etc.
+
+Use effect runs after every single re-render, which can include if it gets data back, causing an infinite chain of renders.
+
+We need to declare what it specifically depends on to change.
+
+Ex useEffect:
+
+```
+import React, {useEffects} from 'react';
+
+const functionComponent = () => {
+  // happens after initial dom render.  Good for API calls, for ex.
+  useEffect( () => {
+    // function we want to run here
+  }, [variablesToListenTo, forChange]);  // dependency array that determines if useEffect is run.
+}
+
+
+```
+
+If we want it to run only once, have an empty array; if we want it to run every time the component updates, leave off the array entirely.
