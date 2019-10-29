@@ -1,21 +1,19 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import pet, { ANIMALS } from "@frontendmasters/pet";
 import useDropdown from "./useDropdown";
 import Results from "./Results";
-import ThemeContext from "./ThemeContext";
+import { connect } from "react-redux";
 
-const SearchParams = () => {
-  const [location, setLocation] = useState("San Francisco, CA");
+const SearchParams = props => {
   const [breeds, setBreeds] = useState([]);
   const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
   const [breed, BreedDropdown, setBreed] = useDropdown("Breed", "", breeds);
   const [pets, setPets] = useState([]);
-  const [theme, setTheme] = useContext(ThemeContext);
 
   function requestPets() {
     pet
       .animals({
-        location,
+        location: props.location,
         breed,
         type: animal
       })
@@ -56,9 +54,9 @@ const SearchParams = () => {
           location
           <input
             id="location"
-            value={location}
+            value={props.location}
             placeholder="Location"
-            onChange={e => setLocation(e.target.value)}
+            onChange={e => props.updateLocation)}
           />
         </label>
         <AnimalDropdown />
@@ -67,8 +65,8 @@ const SearchParams = () => {
           Theme
           <select
             value={theme}
-            onChange={e => setTheme(e.target.value)}
-            onBlur={e => setTheme(e.target.value)}
+            onChange={e => props.updateTheme(e.target.value)}
+            onBlur={e => props.updateTheme(e.target.value)}
           >
             <option value="peru">Peru</option>
             <option value="darkblue">Dark Blue</option>
@@ -76,7 +74,7 @@ const SearchParams = () => {
             <option value="chartreuse">Chartreuse</option>
           </select>
         </label>
-        <button style={{ backgroundColor: theme }} type="submit" value="submit">
+        <button style={{ backgroundColor: props.theme }} type="submit" value="submit">
           Submit
         </button>
       </form>
@@ -85,4 +83,14 @@ const SearchParams = () => {
   );
 };
 
-export default SearchParams;
+const mapStateToProps = ({ theme, location }) => ({
+  theme,
+  location
+});
+
+const mapDispatchToProps = dispatch = ({
+  updateTheme: theme => dispatch(changeTheme(theme)),
+  updateLocation: location => dispatch(changeLocation(location))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchParams);
