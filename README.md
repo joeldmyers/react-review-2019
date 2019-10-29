@@ -260,3 +260,12 @@ To use in a functional component, use useContext from React,
 Portals allow us to add something to a different div than the main div where the main app is being injected (e.g., for a modal).
 
 At Netflix, they used this for the video player.
+
+
+### Code splitting
+
+See the app on `feature/code-splitting` - basically, pull in lazy and Suspense from React - 
+
+`import React, { useState, lazy, Suspense } from "react";`
+
+Generally find heavy points to split application; if you aren't pulling off significant amounts it's a worse UI.  
