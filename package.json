@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier \"adopt-me/src/**/*.{js,html}\" --write",
-    "lint": "eslint \"adopt-me/src/**/*.{js,jsx}\" --quiet",
+    "lint": "tslint --project",
     "dev": "parcel adopt-me/src/index.html",
     "dev:mock": "cross-env PET_MOCK=mock parcel adopt-me/src/index.html"
   },
@@ -26,16 +26,16 @@
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
-    "babel-eslint": "^10.0.3",
+    "@types/reach__router": "^1.2.6",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.3",
     "cross-env": "^6.0.3",
-    "eslint": "^6.6.0",
-    "eslint-config-prettier": "^6.5.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-react-hooks": "^2.2.0",
     "parcel-bundler": "^1.12.4",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.1.0",
+    "typescript": "^3.6.4"
   },
   "dependencies": {
     "@frontendmasters/pet": "^1.0.3",
