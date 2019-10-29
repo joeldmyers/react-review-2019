@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, lazy } from "react";
 import pet from "@frontendmasters/pet";
 import Carousel from "./Carousel";
 import ThemeContext from "./ThemeContext";
 import { navigate } from "@reach/router";
-import Modal from "./Modal";
+
+const Modal = lazy(() => import("./Modal"));
 
 class Details extends Component {
   // this is an experimental feature to avoid having to write out all the constructor(props) { super(props) etc.} stuff.
