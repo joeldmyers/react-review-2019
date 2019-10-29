@@ -56,7 +56,7 @@ const SearchParams = props => {
             id="location"
             value={props.location}
             placeholder="Location"
-            onChange={e => props.updateLocation)}
+            onChange={e => props.updateLocation}
           />
         </label>
         <AnimalDropdown />
@@ -74,7 +74,11 @@ const SearchParams = props => {
             <option value="chartreuse">Chartreuse</option>
           </select>
         </label>
-        <button style={{ backgroundColor: props.theme }} type="submit" value="submit">
+        <button
+          style={{ backgroundColor: props.theme }}
+          type="submit"
+          value="submit"
+        >
           Submit
         </button>
       </form>
@@ -88,9 +92,12 @@ const mapStateToProps = ({ theme, location }) => ({
   location
 });
 
-const mapDispatchToProps = dispatch = ({
+const mapDispatchToProps = (dispatch = {
   updateTheme: theme => dispatch(changeTheme(theme)),
   updateLocation: location => dispatch(changeLocation(location))
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchParams);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchParams);
